@@ -4,6 +4,9 @@ export interface Token {
   tokenId: string;
   totalSupply: number;
   circulatingSupply: number;
+  name: string;
+  symbol: string;
+  imageUrl: string;
   owner: {
     id: string;
     companyName: string;
