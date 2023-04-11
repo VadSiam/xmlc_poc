@@ -3,6 +3,7 @@ import { Dispatch } from 'redux';
 import { AppThunk, RootState } from '../store';
 import { User } from '../../types/UserTypes';
 import { NavigateFunction } from 'react-router-dom';
+import { knownUsers } from '../../mocks/mockUsers';
 
 
 interface UserState {
@@ -83,20 +84,3 @@ const getUserFromList = (email: string, password: string) => {
   }
   return checkUserForEmail;
 }
-
-export const knownUsers = [
-  {
-    id: 1,
-    name: 'John',
-    email: 'john@gmail.com',
-    password: '1111',
-    isCompanyAdmin: true,
-  },
-  {
-    id: 2,
-    name: 'Anna',
-    email: 'anna@gmail.com',
-    password: '1111',
-    isCompanyAdmin: false,
-  }
-]
