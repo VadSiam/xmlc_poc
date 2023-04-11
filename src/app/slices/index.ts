@@ -1,10 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import userReducer from './userSlice';
-// Import other slice reducers as needed
+import tokenReducer from './tokenSlice';
 
 const rootReducer = combineReducers({
   user: userReducer,
-  // Add other slice reducers here
+  tokens: tokenReducer,
 });
 
 export default rootReducer;
