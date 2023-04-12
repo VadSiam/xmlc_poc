@@ -11,9 +11,10 @@ interface UserState {
   isAuthenticated: boolean;
 }
 
+const savedUser = sessionStorage.getItem('user');
 const initialState: UserState = {
-  user: null,
-  isAuthenticated: false,
+  user: savedUser ? JSON.parse(savedUser) : null,
+  isAuthenticated: !!savedUser,
 };
 
 export const userSlice = createSlice({
@@ -23,10 +24,12 @@ export const userSlice = createSlice({
     setUser: (state, action: PayloadAction<User>) => {
       state.user = action.payload;
       state.isAuthenticated = true;
+      sessionStorage.setItem('user', JSON.stringify(state.user));
     },
     logout: (state) => {
       state.user = null;
       state.isAuthenticated = false;
+      sessionStorage.setItem('user', '');
     },
   },
 });
@@ -45,12 +48,11 @@ export const login = (
     return null;
   }
 
-  // localStorage.setItem('user', JSON.stringify(user));
   dispatch(setUser(user));
   navigate('/dashboard');
 };
 
-export const register = (name: string, email: string, password: string, isCompanyAdmin: boolean, navigate: any): AppThunk => (
+export const register = (name: string, email: string, password: string, isCompanyAdmin: boolean, navigate: NavigateFunction): AppThunk => (
   dispatch: Dispatch,
 ) => {
   // Mock registration process
@@ -62,7 +64,7 @@ export const register = (name: string, email: string, password: string, isCompan
     isCompanyAdmin,
   };
 
-  localStorage.setItem('user', JSON.stringify(user));
+  sessionStorage.setItem('user', JSON.stringify(user));
   dispatch(setUser(user));
   navigate('/dashboard');
 };
@@ -72,7 +74,7 @@ export const userSelector = (state: RootState) => state.user;
 export default userSlice.reducer;
 
 const getUserFromList = (email: string, password: string) => {
-  const dynamicUser: User = JSON.parse(localStorage.getItem('user') ?? '{}')
+  const dynamicUser: User = JSON.parse(sessionStorage.getItem('user') || '{}')
   console.log('🚀 ~ file: userSlice.ts:75 ~ dynamicUser:', dynamicUser)
   const checkUserForEmail = [...knownUsers, dynamicUser].find(u => u.email === email)
   if (!checkUserForEmail) {

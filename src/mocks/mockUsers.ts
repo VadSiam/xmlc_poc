@@ -6,6 +6,7 @@ export const knownUsers = [
     email: 'john@gmail.com',
     password: '1111',
     isCompanyAdmin: true,
+    avatarUrl: 'img/avatar/avatar1.png'
   },
   {
     id: 2,
@@ -13,5 +14,6 @@ export const knownUsers = [
     email: 'anna@gmail.com',
     password: '1111',
     isCompanyAdmin: false,
+    avatarUrl: 'img/avatar/avatar2.png'
   }
 ]
