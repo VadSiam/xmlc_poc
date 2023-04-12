@@ -7,7 +7,7 @@ export const tokens = [
     circulatingSupply: 800000,
     name: "Gucci Token",
     symbol: "GUCC",
-    imageUrl: "/img/gucc.png",
+    imageUrl: `${process.env.PUBLIC_URL}/img/gucc.png`,
     owner: {
       id: "1",
       companyName: "Gucci",
@@ -22,7 +22,7 @@ export const tokens = [
     circulatingSupply: 1500000,
     name: "Adidas Token",
     symbol: "ADDS",
-    imageUrl: "/img/adds.png",
+    imageUrl: `${process.env.PUBLIC_URL}/img/adds.png`,
     owner: {
       id: "2",
       companyName: "Adidas",
@@ -37,7 +37,7 @@ export const tokens = [
     circulatingSupply: 300000,
     name: "Prada Token",
     symbol: "PRDA",
-    imageUrl: "/img/prda.png",
+    imageUrl: `${process.env.PUBLIC_URL}/img/prda.png`,
     owner: {
       id: "3",
       companyName: "Prada",
