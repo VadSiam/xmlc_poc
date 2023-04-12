@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Registration from './components/Registration/Registration';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -13,7 +13,7 @@ const App: React.FC = () => {
   const RequireAuth: React.FC<{ children: React.ReactElement }> = ({ children }) => {
 
     if (!isAuthenticated) {
-      return <Login />;
+      Navigate({to: '/login'});
     }
     return children;
   };
