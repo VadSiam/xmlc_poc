@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting</title>
+    <script>
+      sessionStorage.redirect = location.href;
+    </script>
+  </head>
+  <body>
+    <script>
+      // Check if the redirect data is stored in sessionStorage
+      if (sessionStorage.redirect) {
+        // Get the stored redirect data
+        const redirect = sessionStorage.redirect;
+
+        // Remove the stored redirect data from sessionStorage
+        delete sessionStorage.redirect;
+
+        // Redirect to the correct route
+        location.replace(redirect);
+      }
+    </script>
+    <div>404</div>
+  </body>
+</html>
