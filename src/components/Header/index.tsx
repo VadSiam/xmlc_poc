@@ -71,7 +71,7 @@ const Header = () => {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
             >
-              <Avatar src={user ? `${process.env.PUBLIC_URL}${user.avatarUrl}` : ''} sx={{ width: 32, height: 32 }} />
+              <Avatar src={user ? `${process.env.PUBLIC_URL}/${user.avatarUrl}` : ''} sx={{ width: 32, height: 32 }} />
             </IconButton>
           </Tooltip>
         )}
