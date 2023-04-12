@@ -72,7 +72,7 @@ export const userSelector = (state: RootState) => state.user;
 export default userSlice.reducer;
 
 const getUserFromList = (email: string, password: string) => {
-  const dynamicUser: User = JSON.parse(localStorage.getItem('user') ?? '')
+  const dynamicUser: User = JSON.parse(localStorage.getItem('user') ?? '{}')
   console.log('🚀 ~ file: userSlice.ts:75 ~ dynamicUser:', dynamicUser)
   const checkUserForEmail = [...knownUsers, dynamicUser].find(u => u.email === email)
   if (!checkUserForEmail) {
