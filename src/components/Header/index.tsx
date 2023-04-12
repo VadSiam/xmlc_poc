@@ -10,10 +10,11 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import { Button, ButtonGroup, Link } from '@mui/material';
+import { Button, ButtonGroup } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../app/slices/selectors';
 import { logout } from '../../app/slices/userSlice';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const user = useSelector(selectUser);
@@ -33,7 +34,7 @@ const Header = () => {
     <React.Fragment>
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: 60 }}>
         {user ? (
-          <Link href="/" underline="none">
+          <Link to="/" >
             <Button
               onClick={onLogout}
               variant='outlined'
@@ -48,12 +49,12 @@ const Header = () => {
               variant='contained'
               aria-label="medium secondary button group"
             >
-              <Link sx={{ marginRight: 1 }} href="/login" underline="none">
+              <Link style={{ marginRight: 10 }} to="/login">
                 <Button>
                   Login
                 </Button>
               </Link>
-              <Link href="/register" underline="none">
+              <Link to="/register">
                 <Button>
                   Register
                 </Button>
