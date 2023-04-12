@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button, TextField } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button, TextField, Typography } from '@mui/material';
 import { useAppDispatch } from '../../app/store';
 import { login } from '../../app/slices/userSlice';
 import { Container, Form } from './styles';
@@ -41,6 +41,10 @@ const Login: React.FC = () => {
           variant="contained"
         >Login</Button>
       </Form>
+      <br />
+      <Typography variant="h6" component="h2">
+        or just <Link to="/register">Register</Link>
+      </Typography>
     </Container>
   );
 };

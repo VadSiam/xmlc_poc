@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Button, TextField, Checkbox, FormControlLabel } from '@mui/material';
+import { Button, TextField, Checkbox, FormControlLabel, Typography } from '@mui/material';
 import { useAppDispatch } from '../../app/store';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../../app/slices/userSlice';
 import { Container, Form } from '../Login/styles';
 
@@ -61,6 +61,10 @@ const Registration: React.FC = () => {
           type="submit"
         >Register</Button>
       </Form>
+      <br />
+      <Typography variant="h6" component="h2">
+        or just <Link to="/login">Login</Link>
+      </Typography>
     </Container>
   );
 };

@@ -2,15 +2,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Card, CardContent, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { RootState } from '../../../app/store';
 import { Token } from '../../../types/TokenTypes';
-import { ImageWrapper } from './TokenCard';
-import styled from '@emotion/styled';
+import { Container } from '../../Login/styles';
 
-export const StyledImg = styled('img')`
-  width: 200px;
-`;
 
 const TokenDetails: React.FC = () => {
   const { tokenId } = useParams<{ tokenId: string }>();
@@ -22,25 +18,30 @@ const TokenDetails: React.FC = () => {
   }
 
   return (
-    <Card>
-      <CardContent>
-        <ImageWrapper>
-          <StyledImg src={token.imageUrl} alt={`${token.name} logo`} />
-        </ImageWrapper>
-        <Typography variant="h4">{token.name}</Typography>
-        <Typography>Symbol: {token.symbol}</Typography>
-        <Typography>Token ID: {token.tokenId}</Typography>
-        <Typography>Total Supply: {token.totalSupply}</Typography>
-        <Typography> Circulating Supply: {token.circulatingSupply}</Typography>
-      <Typography>Owner: {token.owner.companyName}</Typography>
-      {token.contractAddress && (
-        <Typography>Contract Address: {token.contractAddress}</Typography>
-      )}
-      {token.metadata && (
-        <Typography>Metadata: {token.metadata}</Typography>
-      )}
-    </CardContent>
-    </Card >
+    <Container>
+      <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 400 }}>
+        <br />
+        <CardMedia
+          sx={{ height: 245, width: 245 }}
+          image={token.imageUrl}
+          title={`${token.name} logo`}
+        />
+        <CardContent>
+          <Typography variant="h4">{token.name}</Typography>
+          <Typography>Symbol: {token.symbol}</Typography>
+          <Typography>Token ID: {token.tokenId}</Typography>
+          <Typography>Total Supply: {token.totalSupply}</Typography>
+          <Typography> Circulating Supply: {token.circulatingSupply}</Typography>
+          <Typography>Owner: {token.owner.companyName}</Typography>
+          {token.contractAddress && (
+            <Typography>Contract Address: {token.contractAddress}</Typography>
+          )}
+          {token.metadata && (
+            <Typography>Metadata: {token.metadata}</Typography>
+          )}
+        </CardContent>
+      </Card >
+    </Container>
   );
 };
 

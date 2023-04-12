@@ -1,7 +1,7 @@
 // src/components/Dashboard/Token/TokenCard.tsx
 import React from 'react';
 import styled from '@emotion/styled';
-import { Card, CardContent, Typography } from '@mui/material';
+import { Avatar, Card, CardContent, Typography } from '@mui/material';
 import { Token } from '../../../types/TokenTypes';
 
 const StyledCard = styled(Card)`
@@ -15,8 +15,9 @@ export const ImageWrapper = styled('div')`
   align-items: center;
 `;
 
-export const StyledImg = styled('img')`
+export const StyledImg = styled(Avatar)`
   width: 100px;
+  height: 100px;
 `;
 
 interface TokenCardProps {
