@@ -7,11 +7,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 import { ThemeProvider, createTheme } from '@mui/material/styles'
-import { CssBaseline } from '@mui/material';
+import { Container, CssBaseline } from '@mui/material';
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark', 
+    mode: 'dark',
     primary: {
       light: '#3d6bb3',
       main: '#0d47a1',
@@ -41,7 +41,9 @@ root.render(
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <ThemeProvider theme={darkTheme}>
           <CssBaseline />
-          <App />
+          <Container maxWidth="md">
+            <App />
+          </Container>
         </ThemeProvider>
       </BrowserRouter>
     </Provider>

@@ -14,13 +14,18 @@ import { Button, ButtonGroup } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../app/slices/selectors';
 import { logout } from '../../app/slices/userSlice';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import BackButton from './BackButton';
 
 const Header = () => {
+  const navigate = useNavigate();
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const handleBackClick = () => {
+    navigate(-1);
+  };
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -33,6 +38,7 @@ const Header = () => {
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: 60 }}>
+        <BackButton onClick={handleBackClick} />
         {user ? (
           <Link to="/" >
             <Button
