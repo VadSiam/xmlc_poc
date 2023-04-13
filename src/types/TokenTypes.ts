@@ -6,7 +6,7 @@ export interface Token {
   circulatingSupply: number;
   name: string;
   symbol: string;
-  imageUrl: string;
+  imageUrl?: string;
   owner: {
     id: string;
     companyName: string;
