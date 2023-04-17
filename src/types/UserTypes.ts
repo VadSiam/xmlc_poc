@@ -5,4 +5,10 @@ export interface User {
   password: string;
   isCompanyAdmin: boolean;
   avatarUrl?: string;
+  tokenBalances?: TokenBalanceType[]; // Optional
+}
+
+export interface TokenBalanceType {
+  tokenId: string;
+  balance: number;
 }

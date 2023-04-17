@@ -3,6 +3,21 @@ import { Token } from "../types/TokenTypes";
 // src/mocks/tokens.ts
 const tokens: Token[] = [
   {
+    id: "0",
+    tokenId: "0x1234567890abcddf",
+    totalSupply: 10000000,
+    circulatingSupply: 8000000,
+    name: "Ximulacrum Token",
+    symbol: "XMLC",
+    imageUrl: `${process.env.PUBLIC_URL}/img/xmlc.png`,
+    owner: {
+      id: "0",
+      companyName: "Ximulacrum DAO",
+    },
+    contractAddress: "0x1234567890bbcdef",
+    metadata: "Metadata for XMLC Token",
+  },
+  {
     id: "1",
     tokenId: "0x1234567890abcdef",
     totalSupply: 1000000,
