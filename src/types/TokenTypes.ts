@@ -1,6 +1,7 @@
 // TokenTypes.ts
 export interface Token {
   id: string;
+  price: number;
   tokenId: string;
   totalSupply: number;
   circulatingSupply: number;

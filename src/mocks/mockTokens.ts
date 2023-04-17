@@ -4,6 +4,7 @@ import { Token } from "../types/TokenTypes";
 const tokens: Token[] = [
   {
     id: "0",
+    price: 1,
     tokenId: "0x1234567890abcddf",
     totalSupply: 10000000,
     circulatingSupply: 8000000,
@@ -19,6 +20,7 @@ const tokens: Token[] = [
   },
   {
     id: "1",
+    price: 2,
     tokenId: "0x1234567890abcdef",
     totalSupply: 1000000,
     circulatingSupply: 800000,
@@ -34,6 +36,7 @@ const tokens: Token[] = [
   },
   {
     id: "2",
+    price: 0.6,
     tokenId: "0xabcdef1234567890",
     totalSupply: 2000000,
     circulatingSupply: 1500000,
@@ -49,6 +52,7 @@ const tokens: Token[] = [
   },
   {
     id: "3",
+    price: 1.5,
     tokenId: "0x7890abcdef123456",
     totalSupply: 500000,
     circulatingSupply: 300000,
