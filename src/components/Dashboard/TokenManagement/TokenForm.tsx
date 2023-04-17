@@ -22,6 +22,7 @@ const TokenForm: React.FC<TokenFormProps> = ({ onCreateToken }) => {
       name,
       symbol,
       tokenId: '',
+      price: 0.1,
       totalSupply: 0,
       circulatingSupply: 0,
       owner: {
