@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { tokens } from '../../mocks/mockTokens';
+import mockTokens from '../../mocks/mockTokens';
 import { Token } from '../../types/TokenTypes';
 
 export interface TokenState {
@@ -7,7 +7,7 @@ export interface TokenState {
 }
 
 const initialState: TokenState = {
-  tokens,
+  tokens: mockTokens.tokens,
 };
 
 export const tokensSlice = createSlice({
