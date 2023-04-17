@@ -11,23 +11,23 @@ import { Container, CssBaseline } from '@mui/material';
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
-      light: '#3d6bb3',
-      main: '#0d47a1',
-      dark: '#093170',
-      contrastText: '#fff',
+      light: '#92a8d1',
+      main: '#89abe3',
+      dark: '#4e6186',
+      contrastText: '#000',
     },
     secondary: {
-      light: '#9f3e72',
-      main: '#880e4f',
-      dark: '#5f0937',
+      light: '#f6b7cb',
+      main: '#f49ac2',
+      dark: '#9f617a',
       contrastText: '#000',
     },
     background: {
-      paper: '#00152a',
-      default: '#001E3C',
-    }
+      paper: '#d1deec',
+      default: '#eef2f7',
+    },
   },
 });
 

@@ -1,5 +1,7 @@
+import { Token } from "../types/TokenTypes";
+
 // src/mocks/tokens.ts
-export const tokens = [
+const tokens: Token[] = [
   {
     id: "1",
     tokenId: "0x1234567890abcdef",
@@ -47,3 +49,4 @@ export const tokens = [
   },
 ];
 
+export default { tokens }
