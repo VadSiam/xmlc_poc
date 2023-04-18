@@ -25,6 +25,10 @@ const Swap: React.FC = () => {
     }
   };
 
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+    event.target.select();
+  };
+
   return (
     <div>
       <h2>Swap Tokens</h2>
@@ -68,6 +72,7 @@ const Swap: React.FC = () => {
           fullWidth
           value={amount}
           onChange={(e) => setAmount(parseFloat(e.target.value))}
+          onFocus={handleFocus}
         />
       </Grid>
       <br />

@@ -1,0 +1,76 @@
+import { NFT } from "../types/UserDashboardTypes";
+
+export const nfts: NFT[] = [
+  {
+    id: '1',
+    name: 'Adidas NFT Shoes',
+    imageUrl: `${process.env.PUBLIC_URL}/img/nft/adidas.png`,
+    description: 'Limited edition Adidas NFT',
+    owner: 'John',
+    price: 100,
+  },
+  {
+    id: '2',
+    name: 'Adidas NFT Boots',
+    imageUrl: `${process.env.PUBLIC_URL}/img/nft/adidas1.png`,
+    description: 'Exclusive Adidas NFT artwork',
+    owner: 'Anna',
+    price: 150,
+  },
+  {
+    id: '3',
+    name: 'Gucci NFT Man',
+    imageUrl: `${process.env.PUBLIC_URL}/img/nft/gucci.png`,
+    description: 'Limited edition Gucci NFT',
+    owner: 'John',
+    price: 200,
+  },
+  {
+    id: '4',
+    name: 'Gucci NFT Wallet',
+    imageUrl: `${process.env.PUBLIC_URL}/img/nft/gucci1.png`,
+    description: 'Exclusive Gucci NFT artwork',
+    owner: 'Anna',
+    price: 250,
+  },
+  {
+    id: '5',
+    name: 'Prada NFT Woman',
+    imageUrl: `${process.env.PUBLIC_URL}/img/nft/prada.png`,
+    description: 'Limited edition Prada NFT',
+    owner: 'John',
+    price: 300,
+  },
+  {
+    id: '6',
+    name: 'Prada NFT Perfume',
+    imageUrl: `${process.env.PUBLIC_URL}/img/nft/prada1.png`,
+    description: 'Exclusive Prada NFT artwork',
+    owner: 'Anna',
+    price: 350,
+  },
+  {
+    id: '7',
+    name: 'Mix NFT House Chaos',
+    imageUrl: `${process.env.PUBLIC_URL}/img/nft/mix.png`,
+    description: 'Collaboration NFT featuring multiple brands',
+    owner: 'John',
+    price: 400,
+  },
+  {
+    id: '8',
+    name: 'Mix NFT Crazy Man',
+    imageUrl: `${process.env.PUBLIC_URL}/img/nft/mix1.png`,
+    description: 'Exclusive collaboration NFT with unique artwork',
+    owner: 'Anna',
+    price: 450,
+  },
+  {
+    id: '9',
+    name: 'Mix NFT Candy',
+    imageUrl: `${process.env.PUBLIC_URL}/img/nft/mix2.png`,
+    description: 'Second Exclusive collaboration NFT with unique artwork',
+    owner: 'Anna',
+    price: 1450,
+  }
+];

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectTokens, createToken, editToken, deleteToken } from '../../../app/slices/tokenManagementSlice';
-import { Token } from '../../../types/TokenTypes';
+import { selectTokens, createToken, editToken, deleteToken } from '../../app/slices/tokenManagementSlice';
+import { Token } from '../../types/TokenTypes';
 import TokenCard from './TokenCard';
 import TokenForm from './TokenForm';
 import TokenDetails from './TokenDetails';

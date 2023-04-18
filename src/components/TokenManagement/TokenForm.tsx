@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, TextField, Grid } from '@mui/material';
 import styled from '@emotion/styled';
-import { Token } from '../../../types/TokenTypes';
+import { Token } from '../../types/TokenTypes';
 
 const FormGrid = styled(Grid)`
   margin: 10px;

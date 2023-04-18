@@ -3,10 +3,13 @@ import { useSelector } from 'react-redux';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Registration from './components/Registration/Registration';
-import Dashboard from './components/Dashboard/Dashboard';
+import DashboardPage from './pages/DashboardPage';
 import { RootState } from './app/store';
 import Header from './components/Header';
-import TokenDetails from './components/Dashboard/Token/TokenDetails';
+import TokenDetails from './components/Token/TokenDetails';
+import TokenListPage from './pages/TokenListPage';
+import NFTDashboardPage from './pages/NFTDashboardPage';
+import NFTDetails from './components/UserDashboard/OpenSeaMarket/NFTDetails';
 
 const App: React.FC = () => {
   const isAuthenticated = useSelector((state: RootState) => state.user.isAuthenticated);
@@ -21,6 +24,9 @@ const App: React.FC = () => {
   return (
     <>
       <Header />
+      <br />
+      <br />
+      <br />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
@@ -29,12 +35,36 @@ const App: React.FC = () => {
           path="/dashboard"
           element={
             <RequireAuth>
-              <Dashboard />
+              <DashboardPage />
             </RequireAuth>
           }
         />
         <Route
-          path="/dashboard/token/:tokenId"
+          path="/nft"
+          element={
+            <RequireAuth>
+              <NFTDashboardPage />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/nft/:nftId"
+          element={
+            <RequireAuth>
+              <NFTDetails />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/token"
+          element={
+            <RequireAuth>
+              <TokenListPage />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/token/:tokenId"
           element={
             <RequireAuth>
               <TokenDetails />
