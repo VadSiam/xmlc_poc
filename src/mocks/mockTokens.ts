@@ -1,6 +1,7 @@
 import { Token } from "../types/TokenTypes";
 
-// src/mocks/tokens.ts
+export const XMLC_TO_EUR_RATE = 1.8;
+
 const tokens: Token[] = [
   {
     id: "0",

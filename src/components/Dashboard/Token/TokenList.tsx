@@ -4,17 +4,18 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../app/store';
 import TokenCard from './TokenCard';
 import { Token } from '../../../types/TokenTypes';
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { StyledBlockContainer } from '../../UserDashboard/Charts/Charts';
 
 const TokenList: React.FC = () => {
   const { tokens } = useSelector((state: RootState) => state.tokens);
 
   return (
-    <div>
-      <Typography variant="h4" align="center" gutterBottom>
+    <StyledBlockContainer>
+      <h2>
         Token List
-      </Typography>
+      </h2>
       <Grid container justifyContent="center" spacing={2}>
         {tokens.map((token: Token) => (
           <Link
@@ -28,7 +29,7 @@ const TokenList: React.FC = () => {
           </Link>
         ))}
       </Grid>
-    </div>
+    </StyledBlockContainer>
   );
 };
 

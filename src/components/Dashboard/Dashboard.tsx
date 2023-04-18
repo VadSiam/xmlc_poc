@@ -17,6 +17,7 @@ const Dashboard: React.FC = () => {
         ? (<h2>Company Admin</h2>)
         : (<UserDashboard />)
       }
+      <br />
       <TokenList />
       {isCompanyAdmin && (<TokenManagement />)}
     </div>

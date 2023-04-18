@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import { TokenChart } from './TokenChart';
 import { generateTokenMarketData } from '../../../utils/dataGenerator';
 import styled from '@emotion/styled';
@@ -16,9 +16,9 @@ const tokenMarketData = generateTokenMarketData(1);
 export const Charts: React.FC = () => {
   return (
     <StyledBlockContainer>
-      <Typography variant="h4" gutterBottom>
+      <h2>
         Token Charts
-      </Typography>
+      </h2>
       {Object.entries(tokenMarketData).map(([token, data]) => (
         <TokenChart key={token} token={token} data={data} />
       ))}
