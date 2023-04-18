@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Button, Grid } from '@mui/material';
 import styled from '@emotion/styled';
-import { Token } from '../../../types/TokenTypes';
+import { Token } from '../../types/TokenTypes';
 
 const DetailsGrid = styled(Grid)`
   margin: 10px;

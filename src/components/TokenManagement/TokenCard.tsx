@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, Typography, CardActions, Button } from '@mui/material';
 import styled from '@emotion/styled';
-import { Token } from '../../../types/TokenTypes';
+import { Token } from '../../types/TokenTypes';
 
 const StyledCard = styled(Card)`
   margin: 10px;

@@ -37,6 +37,10 @@ const BuySell: React.FC = () => {
     }
   };
 
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+    event.target.select();
+  };
+
   return (
     <Paper elevation={3} sx={{ padding: 3 }}>
       <Typography variant="h6" gutterBottom>
@@ -63,6 +67,7 @@ const BuySell: React.FC = () => {
             label="Amount"
             value={amount}
             onChange={handleAmountChange}
+            onFocus={handleFocus}
           />
         </Grid>
         <Grid item xs={12} sm={6}>

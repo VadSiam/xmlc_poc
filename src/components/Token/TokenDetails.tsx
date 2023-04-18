@@ -3,9 +3,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
-import { RootState } from '../../../app/store';
-import { Token } from '../../../types/TokenTypes';
-import { Container } from '../../Login/styles';
+import { RootState } from '../../app/store';
+import { Token } from '../../types/TokenTypes';
+import { Container } from '../Login/styles';
 
 
 const TokenDetails: React.FC = () => {
