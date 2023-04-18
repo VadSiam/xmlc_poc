@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { buyToken, sellToken, updateTokenBalance } from '../../../app/slices/tokenSlice';
 import { selectTokens, selectUser } from '../../../app/slices/selectors';
 import { Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@mui/material';
+import { updateUserBalance } from '../../../app/slices/userSlice';
 
 const BuySell: React.FC = () => {
   const dispatch = useDispatch();
@@ -27,17 +27,16 @@ const BuySell: React.FC = () => {
 
   const handleBuy = () => {
     if (amount > 0 && tokenSymbol) {
-      dispatch(updateTokenBalance({ userId, symbol: tokenSymbol, amount }));
+      dispatch(updateUserBalance({ userId, symbol: tokenSymbol.toLowerCase(), amount }));
     }
   };
 
   const handleSell = () => {
     if (amount > 0 && tokenSymbol) {
-      dispatch(updateTokenBalance({ userId, symbol: tokenSymbol, amount: -amount }));
+      dispatch(updateUserBalance({ userId, symbol: tokenSymbol.toLowerCase(), amount: -amount }));
     }
   };
 
-  // Add the form components and event handlers
   return (
     <Paper elevation={3} sx={{ padding: 3 }}>
       <Typography variant="h6" gutterBottom>

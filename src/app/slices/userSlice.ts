@@ -31,10 +31,56 @@ export const userSlice = createSlice({
       state.isAuthenticated = false;
       sessionStorage.setItem('user', '');
     },
-  },
+    updateUserBalance: (state, action: PayloadAction<{ userId: number; symbol: string; amount: number }>) => {
+      const findToken = state.user?.tokenBalances?.find((token) => token.tokenId === action.payload.symbol);
+      const updatedToken = findToken
+        ? { tokenId: action.payload.symbol, balance: findToken.balance + action.payload.amount }
+        : { tokenId: action.payload.symbol, balance: action.payload.amount }
+      const updatedTokenBalances = findToken
+        ? ((state.user?.tokenBalances ?? []).map((token) => {
+          if (token.tokenId === action.payload.symbol) {
+            return updatedToken;
+          }
+          return token;
+        }))
+        : [
+          ...(state.user?.tokenBalances ?? []),
+          updatedToken,
+        ]
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      state.user = {
+        ...state.user,
+        tokenBalances: updatedTokenBalances,
+      }
+    },
+    updateUserBalanceSwap: (state, action: PayloadAction<{ userId: number; fromToken: string; toToken: string; amount: number }>) => {
+      const findToken = state.user?.tokenBalances?.find((token) => token.tokenId === action.payload.toToken);
+      const updatedToken = findToken
+        ? { tokenId: action.payload.toToken, balance: findToken.balance + action.payload.amount }
+        : { tokenId: action.payload.toToken, balance: action.payload.amount }
+      const updatedTokenBalances = findToken
+        ? ((state.user?.tokenBalances ?? []).map((token) => {
+          if (token.tokenId === action.payload.toToken) {
+            return updatedToken;
+          }
+          return token;
+        }))
+        : [
+          ...(state.user?.tokenBalances ?? []),
+          updatedToken,
+        ]
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      state.user = {
+        ...state.user,
+        tokenBalances: updatedTokenBalances,
+      }
+    }
+  }
 });
 
-export const { setUser, logout } = userSlice.actions;
+export const { setUser, logout, updateUserBalance, updateUserBalanceSwap } = userSlice.actions;
 
 export const login = (
   email: string,
@@ -75,7 +121,6 @@ export default userSlice.reducer;
 
 const getUserFromList = (email: string, password: string) => {
   const dynamicUser: User = JSON.parse(sessionStorage.getItem('user') || '{}')
-  console.log('🚀 ~ file: userSlice.ts:75 ~ dynamicUser:', dynamicUser)
   const checkUserForEmail = [...knownUsers, dynamicUser].find(u => u.email === email)
   if (!checkUserForEmail) {
     return null;

@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../app/store';
 import { TokenCard } from './TokenCard';
 import { Typography } from '@mui/material';
 import { StyledBlockContainer } from '../Charts/Charts';
+import { selectUser } from '../../../app/slices/selectors';
 
 export const TokenBalance: React.FC = () => {
-  const { tokenBalances } = useSelector((state: RootState) => state.user.user) ?? {};
+  const { tokenBalances } = useSelector(selectUser) ?? {};
+  console.log('🚀 ~ file: TokenBalance.tsx:10 ~ tokenBalances:', tokenBalances)
 
   return (
     <StyledBlockContainer>

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { swapToken, updateUserBalance } from '../../../app/slices/tokenSlice';
-import { RootState } from '../../../app/store';
 import { selectTokens, selectUser } from '../../../app/slices/selectors';
-import { Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { updateUserBalanceSwap } from '../../../app/slices/userSlice';
 
 const Swap: React.FC = () => {
   const dispatch = useDispatch();
@@ -14,6 +13,7 @@ const Swap: React.FC = () => {
   const [fromToken, setFromToken] = useState('');
   const [toToken, setToToken] = useState('');
   const [amount, setAmount] = useState(0);
+  const toTokensList = tokens.filter((token) => token.symbol !== fromToken);
 
   if (!userId) {
     return null;
@@ -21,46 +21,56 @@ const Swap: React.FC = () => {
 
   const handleSwap = () => {
     if (fromToken && toToken && amount > 0) {
-      dispatch(updateUserBalance({ userId, fromToken, toToken, amount }));
+      dispatch(updateUserBalanceSwap({ userId, fromToken: fromToken.toLowerCase(), toToken: toToken.toLowerCase(), amount }));
     }
   };
 
   return (
     <div>
       <h2>Swap Tokens</h2>
-      <FormControl fullWidth>
-        <InputLabel>From</InputLabel>
-        <Select
-          value={fromToken}
-          onChange={(e) => setFromToken(e.target.value)}
-        >
-          {tokens.map((token) => (
-            <MenuItem key={token.tokenId} value={token.tokenId}>
-              {token.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <FormControl fullWidth>
-        <InputLabel>To</InputLabel>
-        <Select
-          value={toToken}
-          onChange={(e) => setToToken(e.target.value)}
-        >
-          {tokens.map((token) => (
-            <MenuItem key={token.tokenId} value={token.tokenId}>
-              {token.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <TextField
-        label="Amount"
-        type="number"
-        fullWidth
-        value={amount}
-        onChange={(e) => setAmount(parseFloat(e.target.value))}
-      />
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+          <FormControl fullWidth>
+            <InputLabel>From</InputLabel>
+            <Select
+              value={fromToken}
+              onChange={(e) => setFromToken(e.target.value)}
+            >
+              {tokens.map((token) => (
+                <MenuItem key={token.tokenId} value={token.symbol}>
+                  {token.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <FormControl fullWidth>
+            <InputLabel>To</InputLabel>
+            <Select
+              value={toToken}
+              onChange={(e) => setToToken(e.target.value)}
+            >
+              {toTokensList.map((token) => (
+                <MenuItem key={token.tokenId} value={token.symbol}>
+                  {token.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
+      </Grid>
+      <br />
+      <Grid item xs={6} sm={6}>
+        <TextField
+          label="Amount"
+          type="number"
+          fullWidth
+          value={amount}
+          onChange={(e) => setAmount(parseFloat(e.target.value))}
+        />
+      </Grid>
+      <br />
       <Button
         variant="contained"
         color="primary"

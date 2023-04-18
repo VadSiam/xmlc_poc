@@ -31,21 +31,6 @@ export const tokensSlice = createSlice({
       const tokenId = action.payload;
       state.tokens = state.tokens.filter((token) => token.id !== tokenId);
     },
-    buyToken: (state, action: PayloadAction<{ userId: number; tokenId: string; amount: number; cost: number }>) => {
-      // Add buy token logic
-    },
-    sellToken: (state, action: PayloadAction<{ userId: number; tokenId: string; amount: number; cost: number }>) => {
-      // Add sell token logic
-    },
-    swapToken: (state, action: PayloadAction<{ userId: number; fromTokenId: string; toTokenId: string; amount: number }>) => {
-      // Add swap token logic
-    },
-    updateTokenBalance: (state, action: PayloadAction<{ userId: number; symbol: string; amount: number }>) => {
-      // Add swap token logic
-    },
-    updateUserBalance: (state, action: PayloadAction<{ userId: number; fromToken: string; toToken: string, amount: number }>) => {
-      // Add swap token logic
-    },
   },
 });
 
@@ -55,11 +40,6 @@ export const {
   addToken,
   updateToken,
   deleteToken,
-  buyToken,
-  sellToken,
-  swapToken,
-  updateTokenBalance,
-  updateUserBalance,
 } = tokensSlice.actions;
 
 export default tokensSlice.reducer;
