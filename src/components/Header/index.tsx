@@ -10,7 +10,7 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import { AppBar, Button, ButtonGroup, Toolbar, styled } from '@mui/material';
+import { AppBar, Button, ButtonGroup, Theme, Toolbar, styled } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../app/slices/selectors';
 import { logout } from '../../app/slices/userSlice';
@@ -22,6 +22,9 @@ const StyledLink = styled(Link)`
   color: #000;  
   font-weight: 500;
   margin: 10px;
+`
+const StyledAppBar = styled(AppBar)`
+  background-color:  ${({ theme }: { theme?: Theme }) => theme?.palette.background.default}
 `
 
 const Header = () => {
@@ -44,7 +47,7 @@ const Header = () => {
   }
   return (
     <React.Fragment>
-      <AppBar position="fixed">
+      <StyledAppBar position="fixed" >
         <Toolbar sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: 60 }}>
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: 60 }}>
             <BackButton onClick={handleBackClick} />
@@ -162,7 +165,7 @@ const Header = () => {
             </MenuItem>
           </Menu>
         </Toolbar>
-      </AppBar>
+      </StyledAppBar>
     </React.Fragment>
   );
 }

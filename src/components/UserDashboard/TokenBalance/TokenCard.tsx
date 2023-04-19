@@ -22,7 +22,7 @@ export const TokenCard: React.FC<TokenCardProps> = ({ tokenBalance }) => {
           <Typography variant="h5" component="div" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: 16 }}>
             {balance} ${tokenId.toUpperCase()}
             <Typography variant="h5" component="div" style={{ fontSize: 13, color: 'grey' }}>
-              {tokenEURPrice * balance} €
+             { parseFloat((+tokenEURPrice * balance).toFixed(2))} €
             </Typography>
           </Typography>
         </Typography>
