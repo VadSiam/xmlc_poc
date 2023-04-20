@@ -15,6 +15,14 @@ export const knownUsers = [
         tokenId: 'adds',
         balance: 200,
       },
+      {
+        tokenId: 'adds',
+        balance: 1453,
+      },
+      {
+        tokenId: 'prda',
+        balance: 1333,
+      },
     ],
   },
   {
@@ -32,6 +40,14 @@ export const knownUsers = [
       {
         tokenId: 'gucc',
         balance: 300,
+      },
+      {
+        tokenId: 'adds',
+        balance: 453,
+      },
+      {
+        tokenId: 'prda',
+        balance: 333,
       },
     ],
   },
