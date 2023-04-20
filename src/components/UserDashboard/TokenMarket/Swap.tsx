@@ -82,7 +82,11 @@ export const ItemGrid = styled(Grid)`
   align-items: center;
 `
 
-const Swap: React.FC = () => {
+interface ISwap {
+  sell?: boolean;
+}
+
+const Swap: React.FC<ISwap> = ({ sell }) => {
   const dispatch = useDispatch();
   const { id: userId } = useSelector(selectUser) ?? {};
   const [open, setOpen] = React.useState(false);
@@ -90,9 +94,10 @@ const Swap: React.FC = () => {
   const handleClose = () => setOpen(false);
 
   const tokens = useSelector(selectTokens);
+  const tokensWithoutXmlc = tokens.slice(1);
 
-  const [fromToken, setFromToken] = useState(tokens[0].symbol);
-  const [toToken, setToToken] = useState(tokens[1].symbol);
+  const [fromToken, setFromToken] = useState(tokens[1].symbol);
+  const [toToken, setToToken] = useState(tokens[0].symbol);
   const [amount, setAmount] = useState(0);
   const toTokensList = tokens.filter((token) => token.symbol !== fromToken);
 
@@ -124,9 +129,12 @@ const Swap: React.FC = () => {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             SUCCESS
           </Typography>
+          <Typography component='span'>
+            Tokens completely swapped/sold
+          </Typography>
         </Box>
       </Modal>
-      <h2>Swap Tokens</h2>
+      <h2>{sell ? 'Sell' : 'Swap'} Tokens</h2>
       <StyledGreyGrid container>
         <ItemGrid item xs={12} >
           <Grid item xs={6} sm={8}>
@@ -142,7 +150,7 @@ const Swap: React.FC = () => {
                 ? (<Typography variant="caption" display="block" gutterBottom style={{ padding: '0 14px', marginTop: '-16px' }}>
                   {parseFloat((+amount * 1.2).toFixed(2))} €
                 </Typography>)
-                : <Typography>{' '}</Typography>}
+                : <Typography component='span'>{' '}</Typography>}
             </div>
           </Grid>
           <Grid item xs={6} sm={4}>
@@ -151,7 +159,7 @@ const Swap: React.FC = () => {
                 value={fromToken}
                 onChange={(e) => setFromToken(e.target.value as string)}
               >
-                {tokens.map((token) => (
+                {(sell ? tokensWithoutXmlc : tokens).map((token) => (
                   <MenuItem key={token.tokenId} value={token.symbol}>
                     <div style={{ display: 'flex', justifyContent: 'end', alignItems: 'center' }}>
                       <Avatar src={token.imageUrl} alt={`${token.name} logo`} style={{ marginRight: 10 }} />
@@ -181,12 +189,13 @@ const Swap: React.FC = () => {
                 ? (<Typography variant="caption" display="block" gutterBottom style={{ padding: '0 14px', marginTop: '-16px' }}>
                   {parseFloat((+amount / 1.5 * 1.2).toFixed(2))} €
                 </Typography>)
-                : <Typography>{' '}</Typography>}
+                : <Typography component='span'>{' '}</Typography>}
             </div>
           </Grid>
           <Grid item xs={6} sm={4}>
             <FormControl fullWidth>
               <SelectNoBorder
+                disabled={sell}
                 value={toToken}
                 onChange={(e) => setToToken(e.target.value as string)}
               >
@@ -212,7 +221,7 @@ const Swap: React.FC = () => {
         style={{ width: '100%', height: '50px', fontSize: '1.3rem' }}
         size='large'
       >
-        Swap
+        {sell ? 'Sell' : 'Swap'}
       </Button>
     </div>
   );
