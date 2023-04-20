@@ -12,7 +12,7 @@ export const knownUsers = [
         balance: 1000,
       },
       {
-        tokenId: 'adds',
+        tokenId: 'gucc',
         balance: 200,
       },
       {

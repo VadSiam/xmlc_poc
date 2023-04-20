@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../app/slices/selectors';
 import TokenManagement from '../components/TokenManagement/TokenManagement';
 import { UserDashboard } from '../components/UserDashboard/UserDashboard';
+import { LabelDashboard } from '../components/LabelDashboard/LabelDashboard';
 
 const Dashboard: React.FC = () => {
   const user = useSelector(selectUser);
@@ -13,7 +14,7 @@ const Dashboard: React.FC = () => {
     <div>
       <h1>Dashboard</h1>
       {isCompanyAdmin
-        ? (<h2>Company Admin</h2>)
+        ? (<LabelDashboard />)
         : (<UserDashboard />)
       }
       <br />
