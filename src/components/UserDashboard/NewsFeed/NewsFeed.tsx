@@ -11,7 +11,7 @@ interface NewsFeedProps {
 const NewsFeed: React.FC<NewsFeedProps> = ({ newsList }) => {
   return (
     <StyledBlockContainer>
-      <h2>News from Brands</h2>
+      <h2>New drops and actions</h2>
       <Grid container spacing={2}>
         {newsList.map((news) => (
           <Grid item key={news.id} xs={12} sm={6} md={4}>
