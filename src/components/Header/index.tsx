@@ -106,6 +106,7 @@ const Header = () => {
           )
             : (
               <ButtonGroup
+                sx={{ mr: 2, display: { sm: 'none' } }}
                 color="secondary"
                 variant='contained'
                 aria-label="medium secondary button group"

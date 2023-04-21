@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Box, Button, Typography, Grid, FormControl, MenuItem, Avatar, Modal } from '@mui/material';
-import { ItemGrid, ModalStyle, SelectNoBorder, StyledGreyGrid, TextFieldNoBorder } from '../../UserDashboard/TokenMarket/styles';
+import { Box, Button, Typography, Grid, FormControl, MenuItem, Avatar, Collapse, Alert, IconButton } from '@mui/material';
+import { ItemGrid, SelectNoBorder, StyledGreyGrid, TextFieldNoBorder } from '../../UserDashboard/TokenMarket/styles';
 import { useSelector } from 'react-redux';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowCircleDownOutlined';
 import { selectTokens } from '../../../app/slices/selectors';
@@ -8,6 +8,7 @@ import AttachMoneyRoundedIcon from '@mui/icons-material/AttachMoneyRounded';
 import EuroRoundedIcon from '@mui/icons-material/EuroRounded';
 import CurrencyBitcoinRoundedIcon from '@mui/icons-material/CurrencyBitcoinRounded';
 import { StyledBlockContainer } from '../../UserDashboard/Charts/Charts';
+import CloseIcon from '@mui/icons-material/Close';
 
 const fiatOptions = [
   { value: 'EUR', label: 'EUR', icon: <EuroRoundedIcon /> },
@@ -17,7 +18,6 @@ const fiatOptions = [
 
 const BuyXMLC: React.FC = () => {
   const tokens = useSelector(selectTokens);
-  console.log('🚀 ~ file: BuyXMLC.tsx:15 ~ tokens:', tokens)
   const [fromFiat, setFromFiat] = useState(fiatOptions[0]?.value);
   const [amount, setAmount] = useState(0);
   const [open, setOpen] = React.useState(false);
@@ -36,21 +36,24 @@ const BuyXMLC: React.FC = () => {
 
   return (
     <StyledBlockContainer>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={ModalStyle}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            SUCCESS
-          </Typography>
-          <Typography component='span'>
-            XMLC tokens bought
-          </Typography>
-        </Box>
-      </Modal>
+      <Collapse in={open}>
+        <Alert
+          severity="success"
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={handleClose}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          sx={{ mb: 2 }}
+        >
+          Tokens have been purchased
+        </Alert>
+      </Collapse>
       <Box sx={{ width: '100%' }}>
         <Typography variant="h5" mb={2}>
           Buy XMLC
