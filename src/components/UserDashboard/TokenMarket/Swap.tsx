@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowCircleDownOutlined';
 import { selectTokens, selectUser } from '../../../app/slices/selectors';
-import { Avatar, Box, Button, FormControl, Grid, MenuItem, Modal, Typography } from '@mui/material';
+import { Alert, Avatar, Button, Collapse, FormControl, Grid, IconButton, MenuItem, Typography } from '@mui/material';
 import { updateUserBalanceSwap } from '../../../app/slices/userSlice';
-import { ItemGrid, ModalStyle, SelectNoBorder, StyledGreyGrid, TextFieldNoBorder } from './styles';
+import { ItemGrid, SelectNoBorder, StyledGreyGrid, TextFieldNoBorder } from './styles';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface ISwap {
   sell?: boolean;
@@ -43,21 +44,24 @@ const Swap: React.FC<ISwap> = ({ sell }) => {
 
   return (
     <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={ModalStyle}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            SUCCESS
-          </Typography>
-          <Typography component='span'>
-            Tokens completely swapped/sold
-          </Typography>
-        </Box>
-      </Modal>
+      <Collapse in={open}>
+        <Alert
+          severity="success"
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={handleClose}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          sx={{ mb: 2 }}
+        >
+          tokens were exchanged/sold
+        </Alert>
+      </Collapse>
       <h2>{sell ? 'Sell' : 'Swap'} Tokens</h2>
       <StyledGreyGrid container>
         <ItemGrid item xs={12} >
