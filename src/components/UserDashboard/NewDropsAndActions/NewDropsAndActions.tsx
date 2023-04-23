@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
-import { Box, Grid, Modal } from '@mui/material';
+import { Box, Grid, Modal, styled } from '@mui/material';
 import { DropAction } from '../../../types/UserDashboardTypes';
 import { StyledBlockContainer } from '../Charts/Charts';
 import DropActionCard from './DropActionCard';
+import { breakpoints } from '../../../styles';
+
+const StyledBox = styled(Box)`
+  width: 40%;
+  @media (max-width: ${breakpoints.xl}) {
+    width: 50%;
+  }
+  @media (max-width: ${breakpoints.sm}) {
+    width: 80%;
+  }
+`;
 
 interface NewDropsAndActionsProps {
   dropActions: DropAction[];
@@ -32,9 +43,9 @@ const NewDropsAndActions: React.FC<NewDropsAndActionsProps> = ({ dropActions }) 
             onClose={handleClose}
             closeAfterTransition
           >
-            <Box
+            <StyledBox
               sx={{
-                width: '80%',
+                // width: '50%',
                 maxWidth: '800px',
                 bgcolor: 'background.paper',
                 boxShadow: 24,
@@ -48,7 +59,7 @@ const NewDropsAndActions: React.FC<NewDropsAndActionsProps> = ({ dropActions }) 
               <img src={selectedDropAction.imageUrl} alt={selectedDropAction.title} style={{ width: '100%', height: 'auto' }} />
               <h3>{selectedDropAction.title}</h3>
               <p>{selectedDropAction.description}</p>
-            </Box>
+            </StyledBox>
           </Modal>
         )}
       </Box>
