@@ -33,7 +33,6 @@ const DropActionCard: React.FC<NewsCardProps> = ({ dropAction, onClick }) => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         component="img"
-        // height="140"
         image={imageUrl}
         alt={title}
       />
