@@ -21,7 +21,7 @@ const NewDropsAndActions: React.FC<NewDropsAndActionsProps> = ({ dropActions }) 
       <Box>
         <Grid container spacing={2}>
           {dropActions.map((dropAction) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={dropAction.id}>
+            <Grid item xs={12} sm={4} key={dropAction.id}>
               <DropActionCard dropAction={dropAction} onClick={() => setSelectedDropAction(dropAction)} />
             </Grid>
           ))}
