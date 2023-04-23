@@ -1,9 +1,17 @@
 import React from 'react';
-import { Card, CardContent, Typography, CardMedia, Avatar } from '@mui/material';
+import { Card, CardContent, Typography, CardMedia, Avatar, styled } from '@mui/material';
 import { DropAction } from '../../../types/UserDashboardTypes';
 import { selectTokens } from '../../../app/slices/selectors';
 import { useSelector } from 'react-redux';
 
+const StyledCardMedia = styled(CardMedia)`
+  height: 140px;
+  background-position: top;
+
+  @media (max-width: 600px) {
+    height: 240px;
+  }
+`;
 
 interface NewsCardProps {
   dropAction: DropAction;
@@ -21,9 +29,11 @@ const DropActionCard: React.FC<NewsCardProps> = ({ dropAction, onClick }) => {
 
   return (
     <Card onClick={onClick} >
-      <CardMedia
+      <StyledCardMedia
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         component="img"
-        height="140"
+        // height="140"
         image={imageUrl}
         alt={title}
       />
