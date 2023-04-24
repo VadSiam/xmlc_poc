@@ -26,9 +26,7 @@ const UsersByLabel: React.FC = () => {
           gutterBottom
           sx={{ display: 'flex', alignItems: 'center' }}
         >
-          Users with
-          <Avatar src={tokens?.[2]?.imageUrl} alt={`${tokens?.[2]?.name} logo`} style={{ marginRight: 10, marginLeft: 10 }} />
-          tokens
+          User Analytics
         </Typography>
         {mockTokenUsers.map((user) => (
           <Accordion key={user.id} expanded={expanded === `panel${user.id}`} onChange={handleChange(`panel${user.id}`)}>

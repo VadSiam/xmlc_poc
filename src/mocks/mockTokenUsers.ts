@@ -11,6 +11,7 @@ export const mockTokenUsers = [
       { id: 2, name: 'Adidas Summer Sale', date: '2023-03-20', token: 'ADDS', amount: 20 },
       { id: 3, name: 'Swap', date: '2023-01-20', token: 'ADDS', amount: 200 },
       { id: 4, name: 'Bought', date: '2023-01-22', token: 'ADDS', amount: 300 },
+      { id: 5, name: 'Adidas Token Rewards', date: '2023-03-22', token: 'ADDS', amount: 6 },
     ],
   },
   {
@@ -26,6 +27,7 @@ export const mockTokenUsers = [
       { id: 2, name: 'Adidas. Join with friends', date: '2022-02-15', token: 'ADDS', amount: 5 },
       { id: 3, name: 'Swap', date: '2023-01-20', token: 'ADDS', amount: 100 },
       { id: 4, name: 'Bought', date: '2023-01-22', token: 'ADDS', amount: 30 },
+      { id: 5, name: 'Adidas Token Rewards', date: '2023-02-22', token: 'ADDS', amount: 5 },
     ],
   },
   {

@@ -5,14 +5,15 @@ import { StyledBlockContainer } from '../Charts/Charts';
 import { selectUser } from '../../../app/slices/selectors';
 
 export const TokenBalance: React.FC = () => {
-  const { tokenBalances } = useSelector(selectUser) ?? {};
+  const { tokenBalances, isCompanyAdmin } = useSelector(selectUser) ?? {};
+  const tokensToShow = isCompanyAdmin ? tokenBalances?.filter(tokenBalance => ['xmlc', 'adds'].includes(tokenBalance.tokenId)) : tokenBalances;
 
   return (
     <StyledBlockContainer>
       <h2>
         Available Token Balance
       </h2>
-      {(tokenBalances ?? []).map((tokenBalance, index: number) => (
+      {(tokensToShow ?? []).map((tokenBalance, index: number) => (
         <TokenCard key={index} tokenBalance={tokenBalance} />
       ))}
     </StyledBlockContainer>

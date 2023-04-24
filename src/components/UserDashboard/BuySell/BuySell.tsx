@@ -1,32 +1,47 @@
 import React, { useState } from 'react';
-import { Box, Button, Typography, Grid, FormControl, MenuItem, Avatar, Collapse, Alert, IconButton } from '@mui/material';
+import { Box, Button, Typography, Grid, FormControl, MenuItem, Avatar, Collapse, Alert, IconButton, Tooltip } from '@mui/material';
 import { ItemGrid, SelectNoBorder, StyledGreyGrid, TextFieldNoBorder } from '../../UserDashboard/TokenMarket/styles';
 import { useSelector } from 'react-redux';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowCircleDownOutlined';
 import { selectTokens } from '../../../app/slices/selectors';
 import AttachMoneyRoundedIcon from '@mui/icons-material/AttachMoneyRounded';
 import EuroRoundedIcon from '@mui/icons-material/EuroRounded';
-import CurrencyBitcoinRoundedIcon from '@mui/icons-material/CurrencyBitcoinRounded';
+import CurrencyFrancIcon from '@mui/icons-material/CurrencyFranc';
 import { StyledBlockContainer } from '../../UserDashboard/Charts/Charts';
 import CloseIcon from '@mui/icons-material/Close';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 const fiatOptions = [
   { value: 'EUR', label: 'EUR', icon: <EuroRoundedIcon /> },
   { value: 'USD', label: 'USD', icon: <AttachMoneyRoundedIcon /> },
-  { value: 'BTC', label: 'BTC', icon: <CurrencyBitcoinRoundedIcon /> },
+  { value: 'CHF', label: 'CHF', icon: <CurrencyFrancIcon /> },
 ]
 
-const BuyXMLC: React.FC = () => {
+const paymentIcon = [
+  `${process.env.PUBLIC_URL}/img/others/apay.svg`,
+  `${process.env.PUBLIC_URL}/img/others/gpay.svg`,
+  `${process.env.PUBLIC_URL}/img/others/visa.svg`,
+  `${process.env.PUBLIC_URL}/img/others/mastercard.svg`,
+]
+
+const BuySell: React.FC = () => {
+  const svgPath = `${process.env.PUBLIC_URL}/img/others/moon-pay.svg`
   const tokens = useSelector(selectTokens);
   const [fromFiat, setFromFiat] = useState(fiatOptions[0]?.value);
   const [amount, setAmount] = useState(0);
+  const [sellAmount, setSellAmount] = useState(0);
   const [open, setOpen] = React.useState(false);
+  const [sell, onSellChange] = React.useState(false);
+  const changeToSellOrBuy = () => {
+    onSellChange(state => !state);
+  };
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleSubmit = () => {
     handleOpen();
     setAmount(0);
+    setSellAmount(0);
     console.log('Buy XMLC:', amount);
   };
 
@@ -51,23 +66,44 @@ const BuyXMLC: React.FC = () => {
           }
           sx={{ mb: 2 }}
         >
-          Tokens have been purchased
+          Tokens have been {`${sell ? 'sold' : 'purchased'}`}
         </Alert>
       </Collapse>
       <Box sx={{ width: '100%' }}>
         <Typography variant="h5" mb={2}>
-          Buy XMLC
+          {sell ? 'Sell' : 'Buy'} $XMLC
+          <Tooltip
+            placement="top-start"
+            title="To change buy/sell functionality please click arrow button in the middle"
+          >
+            <IconButton>
+              <InfoOutlinedIcon
+                sx={{ fontSize: 26, marginTop: -2, color: 'indianred' }}
+              />
+            </IconButton>
+          </Tooltip>
         </Typography>
-        <StyledGreyGrid container>
+        <StyledGreyGrid
+          container
+          sx={{ flexDirection: sell ? 'column-reverse' : 'column' }}
+        >
           <ItemGrid item xs={12} >
             <Grid item xs={6} sm={8}>
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
                 <TextFieldNoBorder
                   type="number"
                   fullWidth
-                  value={amount}
+                  value={
+                    sell
+                      ? parseFloat((+sellAmount * 1.4).toFixed(2))
+                      : amount
+                  }
                   onChange={(e) => setAmount(parseFloat(e.target.value))}
                   onFocus={handleFocus}
+
+                  InputProps={{
+                    readOnly: sell ? true : false,
+                  }}
                 />
               </div>
             </Grid>
@@ -89,8 +125,11 @@ const BuyXMLC: React.FC = () => {
               </FormControl>
             </Grid>
           </ItemGrid>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10px', width: '100%' }} >
-            <ArrowDropDownIcon style={{ position: 'absolute' }} />
+          <div
+            onClick={changeToSellOrBuy}
+            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10px', width: '100%' }}
+          >
+            <ArrowDropDownIcon style={{ position: 'absolute', cursor: 'pointer' }} />
           </div>
           <ItemGrid item xs={12} >
             <Grid item xs={6} sm={8}>
@@ -99,9 +138,15 @@ const BuyXMLC: React.FC = () => {
                   type="number"
                   fullWidth
                   InputProps={{
-                    readOnly: true,
+                    readOnly: sell ? false : true,
                   }}
-                  value={parseFloat((fromFiat === 'EUR' ? (+amount * 0.6) : (+amount * 0.4)).toFixed(2))}
+                  value={
+                    sell
+                      ? sellAmount
+                      : parseFloat((fromFiat === 'EUR' ? (+amount * 0.6) : (+amount * 0.4)).toFixed(2))
+                  }
+                  onChange={(e) => setSellAmount(parseFloat(e.target.value))}
+                  onFocus={handleFocus}
                 />
               </div>
             </Grid>
@@ -127,15 +172,48 @@ const BuyXMLC: React.FC = () => {
           variant="contained"
           color="primary"
           onClick={handleSubmit}
-          disabled={!fromFiat || amount <= 0}
+          disabled={sell ? (!fromFiat || sellAmount <= 0) : (!fromFiat || amount <= 0)}
           style={{ width: '100%', height: '50px', fontSize: '1.3rem' }}
           size='large'
         >
-          Buy
+          {sell ? 'Sell' : 'Buy'}
         </Button>
+        <Typography
+          sx={{ textAlign: 'center' }}
+          mt={2}>
+          All operations going via
+          <img
+            src={svgPath}
+            alt="SVG Image"
+            style={{
+              width: '100px',
+              height: 'auto',
+              marginBottom: '-4px',
+              marginLeft: '5px'
+            }}
+          />
+        </Typography>
+        <Typography
+          sx={{
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          {paymentIcon.map((path, idx) => (<img
+            key={idx}
+            src={path}
+            alt="SVG Image"
+            style={{
+              width: '40px',
+              height: 'auto',
+              marginBottom: '-4px',
+              marginLeft: '5px'
+            }}
+          />))}
+        </Typography>
       </Box>
     </StyledBlockContainer>
   );
 };
 
-export default BuyXMLC;
+export default BuySell;
