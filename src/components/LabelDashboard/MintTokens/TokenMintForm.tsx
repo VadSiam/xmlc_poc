@@ -51,8 +51,8 @@ const TokenMintForm: React.FC = () => {
         <div>
           <h3> You are the owner of the: </h3>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Avatar src={tokens?.[1]?.imageUrl} alt={`${tokens?.[1]?.name} logo`} style={{ marginRight: 10 }} />
-            <div>${tokens?.[1]?.symbol} token</div>
+            <Avatar src={tokens?.[2]?.imageUrl} alt={`${tokens?.[2]?.name} logo`} style={{ marginRight: 10 }} />
+            <div>${tokens?.[2]?.symbol} token</div>
           </div>
           <br />
           <Typography>
