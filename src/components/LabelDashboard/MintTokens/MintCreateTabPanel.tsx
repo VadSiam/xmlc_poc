@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import MintTokens from './MintTokens';
 import VerifyCompany from './VerifyCompany';
 import { CardContent, FormControlLabel, Switch, Typography } from '@mui/material';
-import CreateTokens from './CreateTokens';
 import { StyledBlockContainer } from '../../UserDashboard/Charts/Charts';
 
 interface TabPanelProps {
@@ -59,7 +58,7 @@ export default function MintCreateTabPanel() {
       <Box sx={{ width: '100%' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-            <Tab label="Create" {...a11yProps(0)} sx={{ fontSize: 20 }} />
+            <Tab label="Verify" {...a11yProps(0)} sx={{ fontSize: 20 }} />
             <Tab label="Mint" {...a11yProps(1)} sx={{ fontSize: 20 }} />
           </Tabs>
         </Box>
@@ -83,7 +82,7 @@ export default function MintCreateTabPanel() {
                   </Typography>
                 </CardContent>
                 <br />
-                <CreateTokens />
+                <br />
               </>
             )
             : (
@@ -98,7 +97,7 @@ export default function MintCreateTabPanel() {
                   </Typography>
                 </CardContent>
                 <br />
-                <Typography>To create tokens please verify your company</Typography>
+                <Typography>Please verify your company</Typography>
                 <br />
                 <VerifyCompany />
               </>

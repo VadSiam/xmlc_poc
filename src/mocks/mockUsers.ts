@@ -9,19 +9,11 @@ export const knownUsers = [
     tokenBalances: [
       {
         tokenId: 'xmlc',
-        balance: 1000,
-      },
-      {
-        tokenId: 'gucc',
-        balance: 200,
+        balance: 10000,
       },
       {
         tokenId: 'adds',
-        balance: 1453,
-      },
-      {
-        tokenId: 'prda',
-        balance: 1333,
+        balance: 14530,
       },
     ],
   },
