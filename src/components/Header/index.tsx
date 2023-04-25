@@ -18,6 +18,7 @@ const drawerWidth = 240;
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
+  const { isCompanyAdmin } = user ?? {};
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -47,18 +48,18 @@ const Header = () => {
       </Typography>
       <Divider />
       <List
-      sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}
+        sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}
       >
         <BackButton onClick={handleBackClick} />
         <StyledLink to="/dashboard">
-          Tokens Dashboard
+          {isCompanyAdmin ? 'Your token' : 'Tokens Dashboard'}
         </StyledLink>
         <StyledLink to="/nft">
           NFT Dashboard
         </StyledLink>
-        <StyledLink to="/token">
-          Tokens List
-        </StyledLink>
+        {!isCompanyAdmin && (<StyledLink to="/token">
+          Listed Tokens
+        </StyledLink>)}
 
       </List>
     </Box>
@@ -66,7 +67,6 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      {/* <StyledAppBar position="fixed" > */}
       <AppBar component="nav">
         <Toolbar
           sx={{ display: 'flex', justifyContent: { xs: 'start', sm: 'center' }, alignItems: 'center', textAlign: 'center', height: 60 }}
@@ -85,7 +85,6 @@ const Header = () => {
               onClick={handleClick}
               size="small"
               sx={{ mr: 2, display: { sm: 'none' } }}
-              // sx={{ ml: 2 }}
               aria-controls={open ? 'account-menu' : undefined}
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
@@ -128,14 +127,14 @@ const Header = () => {
             style={{ justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: 60 }}>
             <BackButton onClick={handleBackClick} />
             <StyledLink to="/dashboard">
-              Tokens Dashboard
+              {isCompanyAdmin ? 'Your token' : 'Tokens Dashboard'}
             </StyledLink>
             <StyledLink to="/nft">
               NFT Dashboard
             </StyledLink>
-            <StyledLink to="/token">
-              Tokens List
-            </StyledLink>
+            {!isCompanyAdmin && (<StyledLink to="/token">
+              Listed Tokens
+            </StyledLink>)}
             {user && (
               <Tooltip title="Account settings">
                 <IconButton
@@ -199,7 +198,6 @@ const Header = () => {
           {drawer}
         </Drawer>
       </Box>
-      {/* </StyledAppBar> */}
     </React.Fragment>
   );
 }
