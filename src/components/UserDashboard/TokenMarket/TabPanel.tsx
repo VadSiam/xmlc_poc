@@ -49,15 +49,15 @@ export default function BasicTabs() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Swap" {...a11yProps(0)} sx={{ fontSize: 20 }} />
           <Tab label="Buy/Sell" {...a11yProps(1)} sx={{ fontSize: 20 }} />
+          <Tab label="Swap" {...a11yProps(0)} sx={{ fontSize: 20 }} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Swap />
+        <BuySell />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <BuySell />
+        <Swap />
       </TabPanel>
     </Box>
   );

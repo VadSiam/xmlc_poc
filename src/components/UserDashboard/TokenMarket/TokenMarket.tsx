@@ -13,7 +13,7 @@ const TokenMarket: React.FC = () => {
           alignItems: 'center',
         }}
       >
-        <h2>Token Market</h2>
+        <h2>Trade</h2>
         <TransactionHistory />
       </div>
       <TabPanel />

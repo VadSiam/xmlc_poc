@@ -181,7 +181,7 @@ const BuySell: React.FC = () => {
         <Typography
           sx={{ textAlign: 'center' }}
           mt={2}>
-          All operations going via
+          Secure transactions provided by
           <img
             src={svgPath}
             alt="SVG Image"

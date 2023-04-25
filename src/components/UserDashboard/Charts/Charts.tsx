@@ -28,7 +28,7 @@ export const Charts: React.FC = () => {
   return (
     <StyledBlockContainer>
       <h2>
-        Token Charts
+        Watchlist
       </h2>
       <Grid container>
         {Object.entries(tokenMarketData).map(([token, data]) => (

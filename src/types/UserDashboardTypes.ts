@@ -13,4 +13,5 @@ export interface NFT {
   description: string;
   owner: string;
   price: number;
+  tags?: string[];
 }

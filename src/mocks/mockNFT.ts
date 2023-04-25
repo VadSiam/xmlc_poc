@@ -8,6 +8,7 @@ export const nfts: NFT[] = [
     description: 'Limited edition Adidas NFT',
     owner: 'John',
     price: 100,
+    tags: ['shoes', 'adidas', 'nft'],
   },
   {
     id: '2',
@@ -16,6 +17,7 @@ export const nfts: NFT[] = [
     description: 'Exclusive Adidas NFT artwork',
     owner: 'Anna',
     price: 150,
+    tags: ['shoes', 'adidas', 'nft'],
   },
   {
     id: '3',
@@ -24,6 +26,7 @@ export const nfts: NFT[] = [
     description: 'Limited edition Gucci NFT',
     owner: 'John',
     price: 200,
+    tags: ['gucci', 'nft', 'style'],
   },
   {
     id: '4',
@@ -32,6 +35,7 @@ export const nfts: NFT[] = [
     description: 'Exclusive Gucci NFT artwork',
     owner: 'Anna',
     price: 250,
+    tags: ['gucci', 'nft', 'style'],
   },
   {
     id: '5',
@@ -40,6 +44,7 @@ export const nfts: NFT[] = [
     description: 'Limited edition Prada NFT',
     owner: 'John',
     price: 300,
+    tags: ['prada', 'nft', 'style'],
   },
   {
     id: '6',
@@ -48,6 +53,7 @@ export const nfts: NFT[] = [
     description: 'Exclusive Prada NFT artwork',
     owner: 'Anna',
     price: 350,
+    tags: ['prada', 'nft', 'style'],
   },
   {
     id: '7',
@@ -56,6 +62,7 @@ export const nfts: NFT[] = [
     description: 'Collaboration NFT featuring multiple brands',
     owner: 'John',
     price: 400,
+    tags: ['nft', 'style', 'game'],
   },
   {
     id: '8',
@@ -64,6 +71,7 @@ export const nfts: NFT[] = [
     description: 'Exclusive collaboration NFT with unique artwork',
     owner: 'Anna',
     price: 450,
+    tags: ['nft', 'style', 'game'],
   },
   {
     id: '9',
@@ -72,5 +80,6 @@ export const nfts: NFT[] = [
     description: 'Second Exclusive collaboration NFT with unique artwork',
     owner: 'Anna',
     price: 1450,
+    tags: ['nft', 'style', 'food'],
   }
 ];
