@@ -4,6 +4,7 @@ import { DropAction } from '../../../types/UserDashboardTypes';
 import { StyledBlockContainer } from '../Charts/Charts';
 import DropActionCard from './DropActionCard';
 import { breakpoints } from '../../../styles';
+import DropActionCardFull from './DropActionCardFull';
 
 const StyledBox = styled(Box)`
   width: 40%;
@@ -45,7 +46,6 @@ const NewDropsAndActions: React.FC<NewDropsAndActionsProps> = ({ dropActions }) 
           >
             <StyledBox
               sx={{
-                // width: '50%',
                 maxWidth: '800px',
                 bgcolor: 'background.paper',
                 boxShadow: 24,
@@ -56,9 +56,11 @@ const NewDropsAndActions: React.FC<NewDropsAndActionsProps> = ({ dropActions }) 
                 outline: 'none',
               }}
             >
-              <img src={selectedDropAction.imageUrl} alt={selectedDropAction.title} style={{ width: '100%', height: 'auto' }} />
-              <h3>{selectedDropAction.title}</h3>
-              <p>{selectedDropAction.description}</p>
+              <DropActionCardFull
+                imageUrl={selectedDropAction.imageUrl}
+                title={selectedDropAction.title}
+                description={selectedDropAction.description}
+              />
             </StyledBox>
           </Modal>
         )}
