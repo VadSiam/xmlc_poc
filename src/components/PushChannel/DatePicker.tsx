@@ -18,16 +18,16 @@ const DateTimePickerValue: React.FC<DateTimePickerValueProps> = ({
   const handleFromDateChange = (newValue: Dayjs | null) => {
     setValue(newValue);
     setPeriod({
-      from: newValue?.format('DD/MM/YYYY') || '',
-      to: valueTo?.format('DD/MM/YYYY') || '',
+      from: newValue?.format('D MMM YYYY') || '',
+      to: valueTo?.format('D MMM YYYY') || '',
     })
   }
 
   const handleToDateChange = (newValue: Dayjs | null) => {
     setValueTo(newValue);
     setPeriod({
-      from: value?.format('DD/MM/YYYY') || '',
-      to: newValue?.format('DD/MM/YYYY') || '',
+      from: value?.format('D MMM YYYY') || '',
+      to: newValue?.format('D MMM YYYY') || '',
     })
   }
 
@@ -36,7 +36,7 @@ const DateTimePickerValue: React.FC<DateTimePickerValueProps> = ({
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} sx={{ marginTop: '10px', marginBottom: '10px' }}>
           <DateTimePicker
-            format='DD/MM/YYYY'
+            format='D MMM YYYY'
             views={['year', 'month', 'day']}
             label="Start Date"
             value={value}
@@ -45,7 +45,7 @@ const DateTimePickerValue: React.FC<DateTimePickerValueProps> = ({
         </Grid>
         <Grid item xs={12} sm={6} sx={{ marginTop: '10px', marginBottom: '10px' }}>
           <DateTimePicker
-            format='DD/MM/YYYY'
+            format='D MMM YYYY'
             views={['year', 'month', 'day']}
             label="End Date"
             value={valueTo}
