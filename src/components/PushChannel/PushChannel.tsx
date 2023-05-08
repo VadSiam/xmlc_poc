@@ -5,6 +5,7 @@ import { RootState } from '../../app/store';
 import { CreateNewsCampaign } from './CreateNewsCampaign';
 import CampaignCard from './CampaignCard';
 import { StyledBlockContainer } from '../UserDashboard/Charts/Charts';
+import CampaignsHistory from './CampaignsHistory';
 
 const PushChannel: React.FC = () => {
   const { campaigns } = useSelector((state: RootState) => state.newsCampaigns);
@@ -21,11 +22,20 @@ const PushChannel: React.FC = () => {
   return (
     <StyledBlockContainer>
       <h2>Engagement</h2>
-      <Button variant="contained" color="primary" onClick={handleOpen}>
-        New Campaign
-      </Button>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <Button variant="contained" color="primary" onClick={handleOpen}>
+          New Campaign
+        </Button>
+        <CampaignsHistory />
+      </div>
       <br />
-      <br />
+      <h3>Current live campaigns: </h3>
       <CreateNewsCampaign open={open} onClose={handleClose} />
       <Grid container spacing={2}>
         {campaigns.map(({ body, date }, index) => (
