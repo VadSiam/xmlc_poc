@@ -1,5 +1,3 @@
-// src/components/TransactionHistory.tsx
-
 import * as React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 import { mockCampaignsHistory } from '../../mocks/mockCampaignsHistory';
@@ -8,7 +6,7 @@ const CampaignsHistoryTable: React.FC = () => {
   return (
     <Paper>
       <Typography variant="h6" gutterBottom component="div">
-        Transaction History
+        Campaigns History
       </Typography>
       <TableContainer>
         <Table>
