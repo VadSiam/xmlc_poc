@@ -10,6 +10,7 @@ import { selectUser } from '../../app/slices/selectors';
 import { logout } from '../../app/slices/userSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import BackButton from './BackButton';
+import NotificationButton from './NotificationButton';
 import MenuComponent from './MenuComponent';
 import { StyledLink } from './styles';
 
@@ -24,6 +25,9 @@ const Header = () => {
   const open = Boolean(anchorEl);
   const handleBackClick = () => {
     navigate(-1);
+  };
+  const handleNotifyClick = () => {
+    navigate('nft');
   };
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -148,6 +152,10 @@ const Header = () => {
                   <Avatar src={user ? `${process.env.PUBLIC_URL}/${user.avatarUrl}` : ''} sx={{ width: 32, height: 32 }} />
                 </IconButton>
               </Tooltip>
+            )}
+            {!isCompanyAdmin && user && (
+              <NotificationButton
+                onClick={handleNotifyClick} />
             )}
             {user ? (
               <StyledLink to="/" >

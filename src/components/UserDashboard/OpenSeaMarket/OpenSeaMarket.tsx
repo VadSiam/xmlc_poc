@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Chip, Grid, Modal } from '@mui/material';
+import { Badge, Chip, Grid, Modal } from '@mui/material';
 import NFTCard from './NFTCard';
 import { StyledBlockContainer } from '../Charts/Charts';
 import { nfts } from '../../../mocks/mockNFT';
@@ -54,8 +54,8 @@ const OpenSeaMarket: React.FC = () => {
   return (
     <StyledBlockContainer>
       <h2>NFT Collection.</h2>
-      <div 
-      style={{display: 'flex', justifyContent: 'start', alignItems: 'center'}}
+      <div
+        style={{ display: 'flex', justifyContent: 'start', alignItems: 'center' }}
       >With OpenSea
         <img
           src={svgPath}
@@ -68,7 +68,7 @@ const OpenSeaMarket: React.FC = () => {
           }}
         />
         collaboration </div>
-        <br/>
+      <br />
       {tags.map((tag) => (
         <Chip
           key={tag}
@@ -79,12 +79,20 @@ const OpenSeaMarket: React.FC = () => {
           sx={{ margin: 1 }}
         />
       ))}
+      <br />
+      <br />
       <Grid container spacing={2}>
-        {filteredNFT.map((nft) => (
+        {filteredNFT.map((nft, indx) => (
           <Grid item xs={12} sm={6} md={4} key={nft.id}
             onClick={() => handleOpen(nft)}
           >
-            <NFTCard nft={nft} />
+            <Badge
+              badgeContent={'NEW'}
+              color="secondary"
+              invisible={indx > 2 ? true : false}
+            >
+              <NFTCard nft={nft} />
+            </Badge>
           </Grid>
         ))}
         {filteredNFT.length === 0 && (

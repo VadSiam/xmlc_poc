@@ -1,12 +1,13 @@
-import { Card, CardContent, styled } from '@mui/material';
+import { Button, Card, CardContent, styled } from '@mui/material';
 import React from 'react';
 
 interface ICampaignCard {
   htmlString: string;
+  click: () => void;
   period: {
     from: string;
     to: string;
-  }
+  };
 }
 
 const IridescentCard = styled(Card)({
@@ -17,14 +18,26 @@ const IridescentCard = styled(Card)({
 const CampaignCard: React.FC<ICampaignCard> = ({
   htmlString,
   period,
+  click,
 }) => {
   return (
     <IridescentCard>
       <CardContent>
-        <h3>{period.from} - {period.to}</h3>
         <div
           dangerouslySetInnerHTML={{ __html: htmlString }}
         />
+        <h3
+          style={{
+            textAlign: 'right',
+            fontWeight: 400
+          }}
+        >{period.from} - {period.to}</h3>
+        <Button
+          onClick={click}
+          variant='contained'
+          color="secondary">
+          Collect $ADDS
+        </Button>
       </CardContent>
     </IridescentCard>
   )
