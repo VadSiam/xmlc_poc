@@ -6,7 +6,6 @@ import { LabelDashboard } from '../components/LabelDashboard/LabelDashboard';
 
 const Dashboard: React.FC = () => {
   const user = useSelector(selectUser);
-  console.log('🚀 ~ file: Dashboard.tsx:7 ~ user:', user)
   const { isCompanyAdmin } = user ?? {};
 
   return (

@@ -6,6 +6,7 @@ import MintTokens from './MintTokens';
 import VerifyCompany from './VerifyCompany';
 import { CardContent, FormControlLabel, Switch, Typography } from '@mui/material';
 import { StyledBlockContainer } from '../../UserDashboard/Charts/Charts';
+import MintNFT from './MintNFT';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -60,6 +61,7 @@ export default function MintCreateTabPanel() {
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
             <Tab label="Verify" {...a11yProps(0)} sx={{ fontSize: 20 }} />
             <Tab label="Mint" {...a11yProps(1)} sx={{ fontSize: 20 }} />
+            <Tab label="Mint NFT" {...a11yProps(2)} sx={{ fontSize: 20 }} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
@@ -106,6 +108,9 @@ export default function MintCreateTabPanel() {
         </TabPanel>
         <TabPanel value={value} index={1}>
           <MintTokens />
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <MintNFT />
         </TabPanel>
       </Box>
     </StyledBlockContainer>
