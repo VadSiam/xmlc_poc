@@ -6,7 +6,6 @@ import { CreateNewsCampaign } from './CreateNewsCampaign';
 import CampaignCard from './CampaignCard';
 import { StyledBlockContainer } from '../UserDashboard/Charts/Charts';
 import CampaignsHistory from './CampaignsHistory';
-import EndlessScrollComponent from './EndlessScroll';
 
 const PushChannel: React.FC = () => {
   const { campaigns } = useSelector((state: RootState) => state.newsCampaigns);
@@ -38,7 +37,16 @@ const PushChannel: React.FC = () => {
       <br />
       <h3>Current live campaigns: </h3>
       <CreateNewsCampaign open={open} onClose={handleClose} />
-      <EndlessScrollComponent />
+      <Grid container spacing={2}>
+        {campaigns.map(({ body, date }, index) => (
+          <Grid key={index} item xs={12} sm={6} md={6}>
+            <CampaignCard
+              htmlString={body}
+              period={date}
+            />
+          </Grid>
+        ))}
+      </Grid>
     </StyledBlockContainer>
   );
 };

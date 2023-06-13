@@ -5,8 +5,8 @@ import TokenMarket from './TokenMarket/TokenMarket';
 import { useLocation } from 'react-router-dom';
 import OpenSeaMarket from './OpenSeaMarket/OpenSeaMarket';
 import MyOpenSeaMarket from './OpenSeaMarket/MyOpenSeaMarket';
-import NewsFeed from './NewDropsAndActions/NewDropsAndActions';
-import { actionsList } from '../../mocks/mockActions';
+import { actionsListScroll } from '../../mocks/mockActionsScroll';
+import EndlessScrollComponent from './NewDropsAndActions/EndlessScroll';
 
 export const UserDashboard: React.FC = () => {
   const { pathname } = useLocation();
@@ -30,7 +30,7 @@ export const UserDashboard: React.FC = () => {
           <br />
           <Charts />
           <br />
-          <NewsFeed dropActions={actionsList} />
+          <EndlessScrollComponent dropActions={actionsListScroll} />
         </>
       )}
     </div>

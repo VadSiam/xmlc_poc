@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { mockNewsCampaigns } from '../../mocks/newsCampaigns';
 
-interface NewsCampaign {
+export interface NewsCampaign {
   date: {
     from: string;
     to: string;

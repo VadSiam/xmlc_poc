@@ -1,4 +1,6 @@
-export const mockNewsCampaigns = [
+import { NewsCampaign } from "../app/slices/newsCampaignsSlice";
+
+export const mockNewsCampaigns: NewsCampaign[] = [
   {
     date: {
       from: '22 Feb 2023',
