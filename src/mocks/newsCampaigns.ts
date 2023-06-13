@@ -7,7 +7,7 @@ export const mockNewsCampaigns: NewsCampaign[] = [
       to: '22 Mar 2024',
     },
     body: `<div>
-      <img src='https://cdn.discordapp.com/attachments/1092399713757708378/1099606393264295946/Siam_Wrexham._Wrexham__Boreham_Wood_31_Med_filmstjerner_som_eie_f32449a1-67f1-412d-9e9d-96372dddbdac.png'
+      <img src='https://cdn.discordapp.com/attachments/1092399713757708378/1118120171270328370/Siam_nft_adidas_new_clothes_collection._fancy_style_a23360e5-ebce-41db-97a1-94c1b09fffc6.png'
         style="width: 100%; height: auto"
       />
       <h2>Adidas</h2>
@@ -21,7 +21,7 @@ export const mockNewsCampaigns: NewsCampaign[] = [
       to: '22 Apr 2024',
     },
     body: `<div>
-      <img src='https://cdn.discordapp.com/attachments/1092399713757708378/1100346522119454760/Siam_SCP._Atitude_dos_enfermeiros_e_massagistas_da_Associacao_D_4295546d-3870-47ec-a3ac-35b31b46beb2.png'
+      <img src='https://cdn.discordapp.com/attachments/1092399713757708378/1118121480316788837/Siam_nft_adidas_new_clothes_collection_d1345b60-5deb-47ca-b7b8-e8ebdac4a5d4.png'
         style="width: 100%; height: auto"
       />
       <h2>Adidas</h2>
@@ -35,7 +35,7 @@ export const mockNewsCampaigns: NewsCampaign[] = [
       to: '22 May 2024',
     },
     body: `<div>
-      <img src='https://cdn.discordapp.com/attachments/1092399713757708378/1100642928730320968/Siam_eternal_cosmic_xenomorph_goddess_hauntingly_beautiful_frac_a45d7c33-7eb9-4e3e-a3b7-14f293ae36bc.png'
+      <img src='https://cdn.discordapp.com/attachments/1092399713757708378/1118121767173636096/Siam_nft_adidas_new_clothes_collection_ae9c37c6-8123-4add-aa79-f72951439714.png'
         style="width: 100%; height: auto"
       />
       <h2>Adidas</h2>
@@ -49,7 +49,7 @@ export const mockNewsCampaigns: NewsCampaign[] = [
       to: '22 Jun 2024',
     },
     body: `<div>
-      <img src='https://cdn.discordapp.com/attachments/1092399713757708378/1099969806377160744/Siam_Gervonta_Davis._Ryan_Garcia_fue_noqueado_con_un_golpe_al_c_9737704f-30fb-42ec-9d50-fb06d3b11851.png'
+      <img src='https://cdn.discordapp.com/attachments/1092399713757708378/1118122164072222720/Siam_nft_adidas_new_pans_collection_683333c2-6201-4b59-96a2-05dbc555f98d.png'
         style="width: 100%; height: auto"
       />
       <h2>Adidas</h2>
@@ -63,7 +63,7 @@ export const mockNewsCampaigns: NewsCampaign[] = [
       to: '22 Jul 2024',
     },
     body: `<div>
-      <img src='https://cdn.discordapp.com/attachments/1092399713757708378/1100642946254131290/Siam_eternal_cosmic_xenomorph_goddess_hauntingly_beautiful_frac_a959ea9d-6f1f-4b6b-9e07-6b58abc95c7a.png'
+      <img src='https://cdn.discordapp.com/attachments/1092399713757708378/1118122301645389925/Siam_nft_adidas_new_pants_collection_fa653223-ae47-4b57-98da-e17afbb8e18d.png'
       style="width: 100%; height: auto"
       />
       <h2>Adidas</h2>
@@ -77,7 +77,7 @@ export const mockNewsCampaigns: NewsCampaign[] = [
       to: '22 Aug 2024',
     },
     body: `<div>
-      <img src='https://cdn.discordapp.com/attachments/1092399713757708378/1100653839134249001/Siam_Share_your_love_for_Prada_by_posting_a_photo_of_your_favor_a6ec1c06-7c49-4e34-ba3a-aab02912f046.png'
+      <img src='https://cdn.discordapp.com/attachments/1092399713757708378/1118122348512542731/Siam_nft_adidas_new_pants_collection_07179b70-029b-4564-b479-afe63a7b1019.png'
         style="width: 100%; height: auto"
       />
       <h2>Adidas</h2>

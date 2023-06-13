@@ -131,11 +131,13 @@ const Header = () => {
             style={{ justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: 60 }}>
             <BackButton onClick={handleBackClick} />
             <StyledLink to="/dashboard">
-              {isCompanyAdmin ? 'Your token' : 'Tokens Dashboard'}
+              {isCompanyAdmin ? 'Your Tokens Dashboard' : 'Tokens Dashboard'}
             </StyledLink>
-            <StyledLink to="/nft">
-              NFT Dashboard
-            </StyledLink>
+            {!isCompanyAdmin &&
+              (<StyledLink to="/nft">
+                NFT Dashboard
+              </StyledLink>)
+            }
             {!isCompanyAdmin && (<StyledLink to="/token">
               Listed Tokens
             </StyledLink>)}
