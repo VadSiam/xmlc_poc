@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, styled } from '@mui/material';
+import { Card, CardContent, styled } from '@mui/material';
 import React from 'react';
 
 interface ICampaignCard {
@@ -30,11 +30,6 @@ const CampaignCard: React.FC<ICampaignCard> = ({
             fontWeight: 400
           }}
         >{period.from} - {period.to}</h3>
-        <Button
-          variant='contained'
-          color="secondary">
-          Collect $ADDS
-        </Button>
       </CardContent>
     </IridescentCard>
   )
