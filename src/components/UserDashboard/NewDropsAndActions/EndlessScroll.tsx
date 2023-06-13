@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { RootState } from '../../app/store';
-import { useSelector } from 'react-redux';
 import { Box, Grid, Modal } from '@mui/material';
 import CampaignCard from './CampaignCard';
+import { NewsCampaign } from '../../../app/slices/newsCampaignsSlice';
+import { StyledBlockContainer } from '../Charts/Charts';
 
-const EndlessScrollComponent = () => {
-  const { campaigns } = useSelector((state: RootState) => state.newsCampaigns);
+interface IEndlessScroll {
+  dropActions: NewsCampaign[]
+}
+
+const EndlessScrollComponent: React.FC<IEndlessScroll> = ({ dropActions }) => {
   const [open, setOpen] = useState(false);
 
-  const [items, setItems] = useState(campaigns ?? []);
+  const [items, setItems] = useState(dropActions ?? []);
   const [hasMore, setHasMore] = useState(true);
   const handleOpen = () => {
     setOpen(true);
@@ -26,12 +29,13 @@ const EndlessScrollComponent = () => {
     }
 
     setTimeout(() => {
-      setItems(items => [...items, ...campaigns]);
+      setItems(items => [...items, ...dropActions]);
     }, 100);
   };
 
   return (
-    <div>
+    <StyledBlockContainer>
+      <h2>New drops and actions</h2>
       <Modal
         open={open}
         onClose={handleClose}
@@ -79,7 +83,7 @@ const EndlessScrollComponent = () => {
           </Grid>
         ))}
       </InfiniteScroll>
-    </div>
+    </StyledBlockContainer>
   );
 }
 
